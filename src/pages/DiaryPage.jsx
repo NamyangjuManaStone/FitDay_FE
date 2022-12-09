@@ -1,6 +1,6 @@
 import DiaryHeader from '../components/diary/DiaryHeader';
 import DiaryContent from '../components/diary/DiaryContent';
-import AppLayout from '../components/layouts/Applayout';
+import AppLayout from '../components/layouts/AppLayout';
 
 const Diarypage = () => {
   return (

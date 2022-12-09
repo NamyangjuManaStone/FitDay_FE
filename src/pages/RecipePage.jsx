@@ -1,4 +1,4 @@
-import AppLayout from '../components/layouts/Applayout';
+import AppLayout from '../components/layouts/AppLayout';
 import RecipeSearch from '../components/recipe/RecipeSearch';
 
 const RecipePage = () => {

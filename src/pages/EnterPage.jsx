@@ -1,10 +1,5 @@
-import React, { useState } from 'react';
-import EnterButton from '../components/common/EnterButton';
 import AuthModal from '../components/modal/AuthModal';
-import LoginModal from '../components/modal/LoginModal';
-
 import useModal from '../hooks/useModal';
-
 import { EnterPageContainer } from './EnterPage.styled';
 
 const EnterPage = () => {

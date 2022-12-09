@@ -1,10 +1,9 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import useInput from '../../hooks/useInput';
-import { 오호수몸무게추가 } from '../../features/weight/weightSlice';
+import { 오호수몸무게추가 } from '../../features/weight/weight.slice';
 import { WeightModalContainer } from './WeightModal.styled';
-import { useEffect } from 'react';
 
 const WeightModal = (props) => {
   const dispatch = useDispatch();

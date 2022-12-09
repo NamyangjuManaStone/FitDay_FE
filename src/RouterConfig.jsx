@@ -11,13 +11,11 @@ const SignUp = lazy(() => import('./components/modal/SignUpModal'));
 
 const RouterConfig = () => {
   const routes = useRoutes([
-    { path: '/', element: <Diary /> },
+    { path: '/diary', element: <Diary /> },
     { path: '/report', element: <Report /> },
     { path: '/weight', element: <Weight /> },
     { path: '/recipe', element: <Recipe /> },
-    { path: '/enter', element: <Enter /> },
-    { path: '/login', element: <Login /> },
-    { path: '/signup', element: <SignUp /> },
+    { path: '/', element: <Enter /> },
   ]);
 
   return routes;

@@ -1,7 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import weightReducer from '../features/weight/weightSlice';
+import userReducer from '../features/user/user.slice';
+import weightReducer from '../features/weight/weight.slice';
 
 export default configureStore({
-  reducer: { weight: weightReducer },
+  reducer: {
+    user: userReducer,
+    weight: weightReducer,
+  },
 });

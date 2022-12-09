@@ -34,4 +34,7 @@ export const HeaderMenu = styled.div`
     text-decoration: none;
     transition: all 250ms ease;
   }
+  .logoutbtn {
+    width: 100px;
+  }
 `;

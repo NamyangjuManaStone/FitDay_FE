@@ -17,3 +17,8 @@ export const checkMeAction = createAsyncThunk('user/checkMe', async () => {
   const { data } = await userAPIs.checkMeAPI();
   return data;
 });
+
+export const changeNicknameAction = createAsyncThunk('user/changeNickname', async (body) => {
+  const { data } = await userAPIs.changeNicknameAPI(body);
+  return data;
+});

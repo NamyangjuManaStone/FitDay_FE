@@ -12,6 +12,9 @@ const initialState = {
   checkMeLoading: false,
   checkMeDone: false,
   checkMeError: null,
+  changeNicknameLoading: false,
+  changeNicknameDone: false,
+  changeNicknameError: null,
 };
 
 export const userSlice = createSlice({
@@ -66,6 +69,21 @@ export const userSlice = createSlice({
     addCase(actions.checkMeAction.rejected, (state, action) => {
       state.checkMeLoading = false;
       state.checkMeError = action.error.message;
+    });
+    // 닉네임 변경
+    addCase(actions.changeNicknameAction.pending, (state) => {
+      state.changeNicknameLoading = true;
+      state.changeNicknameDone = false;
+      state.changeNicknameError = null;
+    });
+    addCase(actions.changeNicknameAction.fulfilled, (state, action) => {
+      state.changeNicknameLoading = false;
+      state.changeNicknameDone = true;
+      state.user = action.payload.user;
+    });
+    addCase(actions.changeNicknameAction.rejected, (state, action) => {
+      state.changeNicknameLoading = false;
+      state.changeNicknameError = action.error.message;
     });
   },
 });

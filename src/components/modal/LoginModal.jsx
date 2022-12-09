@@ -1,10 +1,14 @@
 import React from 'react';
-import ReactModal from 'react-modal';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { loginAction } from '../../features/user/user.actions';
 import useInput from '../../hooks/useInput';
-import { ReactComponent as CloseIcon } from '../../assets/svg/close.svg';
 import { LoginModalContainer } from './LoginModal.styled';
 
 const LoginModal = ({ onChangeAuthMode, onCloseModal }) => {
+  const dispatch = useDispatch();
+  const { loginDone } = useSelector((state) => state.user);
+
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
 
@@ -12,11 +16,23 @@ const LoginModal = ({ onChangeAuthMode, onCloseModal }) => {
     onChangeAuthMode();
   };
 
+  const hendleCloseModal = () => {
+    onCloseModal();
+  };
+
+  const onSubmitLogin = (e) => {
+    e.preventDefault();
+
+    if (!email || !password) return;
+    dispatch(loginAction({ email, password }));
+    loginDone && hendleCloseModal();
+  };
+
   return (
     <LoginModalContainer>
       <div className="loginmodal">
         <span className="loginmodal-info">로그인</span>
-        <form className="loginmodal-form">
+        <form className="loginmodal-form" onSubmit={onSubmitLogin}>
           <input type="email" placeholder="이메일" value={email} onChange={onChangeEmail} />
           <input
             type="password"
@@ -24,7 +40,7 @@ const LoginModal = ({ onChangeAuthMode, onCloseModal }) => {
             value={password}
             onChange={onChangePassword}
           />
-          <button className="loginmodal-form-lgbtn" type="submit">
+          <button className="loginmodal-form-lgbtn" type="submit" disabled={!email || !password}>
             로그인
           </button>
           <span>
